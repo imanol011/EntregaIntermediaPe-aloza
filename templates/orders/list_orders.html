@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de ordenes
+{% endblock %}
+
+{% block content %}
+
+<h1>Hola desde el template de listado de ordenes</h1>
+{% for order in orders %}
+    <div class="card" style="width: 18rem;">
+        <img src="https://c.static-nike.com/a/images/w_1920,c_limit/mdbgldn6yg1gg88jomci/image.jpg"
+        class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">EL cliente: {{order.client}}</h5>
+        <p class="card-text">Compro el producto{{order.product}} el {{order.creation_time}}</p>
+        <p>El pago se realizo {{order.payment_method}}</p>
+        <a href="#" class="btn btn-primary">Ver detalle</a>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

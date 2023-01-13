@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de productos
+{% endblock %}
+
+{% block content %}
+    <h1>Hola desde el template de listado de productos</h1>
+    <h2>Crear nuevo producto</h2> <a href="/products/create-product/" class="btn btn-primary">Crear</a>
+    {% for product in products %}
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://c.static-nike.com/a/images/w_1920,c_limit/mdbgldn6yg1gg88jomci/image.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">Su precio es ${{product.price}}</p>
+                {% if product.stock == True %}
+                    <p>Actualmente hay stock</p>
+                {% else %}
+                    <p>Actualmente, nos quedamos sin stock</p>
+                {% endif %}
+
+                <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+
+    {% endfor %}
+
+{% endblock %}
